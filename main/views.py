@@ -1,12 +1,19 @@
 from django.shortcuts import render
-# Create your views here.
-from django.http import HttpResponse
+# from django.http import HttpResponse
+from datetime import datetime
 
 def index(request):
-    return HttpResponse("<h1>Hello, Django!</h1>")
+    data = {
+        'current_hour': int(datetime.now().strftime('%H')),
+        'active_page': 'index'
+    }
+    return render(request, 'main/index.html', data)
 
-def data(request):
-    return HttpResponse("<h2>Содержимое страницы data</h2>")
+def django_guide(request):
+    return render(request, 'main/guide.html', {'active_page': 'django_guide'})
 
-def test(request):
-    return HttpResponse("<h2>Содержимое страницы test</h2>")
+def parsing_tools(request):
+    return render(request, 'main/tools.html', {'active_page': 'parsing_tools'})
+
+def faq(request):
+    return render(request, 'main/faq.html', {'active_page': 'faq'})

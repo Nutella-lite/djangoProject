@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('data', views.data, name='data'),
-    path('test', views.test, name='test'),
+    path('django_guide', views.django_guide, name='guide'),
+    path('parsing_tools', views.parsing_tools, name='tools'),
+    path('faq', views.faq, name='faq'),
 ]
